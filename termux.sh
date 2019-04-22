@@ -47,10 +47,10 @@ if [ $WHO == "termux" ]; then
     mkdir pentest
 
     # install sqlmap
-    git clone https://github.com/sqlmapproject/sqlmap.git ~/pentest/sqlmap
-    sed -i 's/#!\/usr.*/#!\/data\/data\/com.termux\/files\/usr\/bin\/python/' ~/pentest/sqlmap/sqlmap.py
-    ln -s ~/pentest/sqlmap/sqlmap.py ~/../usr/bin/sqlmap
-    chmod +x ~/../usr/bin/sqlmap
+    # git clone https://github.com/sqlmapproject/sqlmap.git ~/pentest/sqlmap
+    # sed -i 's/#!\/usr.*/#!\/data\/data\/com.termux\/files\/usr\/bin\/python/' ~/pentest/sqlmap/sqlmap.py
+    # ln -s ~/pentest/sqlmap/sqlmap.py ~/../usr/bin/sqlmap
+    # chmod +x ~/../usr/bin/sqlmap
 
     # install metasploit-framework
     # git clone https://github.com/Hax4us/Metasploit_termux.git
