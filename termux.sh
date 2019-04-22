@@ -84,7 +84,7 @@ elif [ $WHO == "nethunter" ]; then
     apt update
     apt install -y aptitude figlet ffmpeg unrar unzip htop traceroute curl jq lolcat cmatrix p7zip-full net-tools xclip zsh
 
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+    
     echo 'clear' >> ~/.zshrc
     echo 'figlet Kali Linux NetHunter' >> ~/.zshrc
     echo 'alias c="xclip -selection clipboard"' >> .zshrc
@@ -123,5 +123,7 @@ elif [ $WHO == "nethunter" ]; then
 
     # forensic tools
     apt install -y exiftool
+
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 fi
