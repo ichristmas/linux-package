@@ -73,6 +73,7 @@ if [ $WHO == "termux" ]; then
     echo 'sshd' >> ~/.zshrc
 
     bash -c "$(curl -fsSL https://git.io/oh-my-termux)"
+    sed -i 's/background=.*/background=#000000/' ~/.termux/colors.properties
     
 elif [ $WHO == "nethunter" ]; then
 
@@ -92,7 +93,7 @@ elif [ $WHO == "nethunter" ]; then
 
     # developer tools
     apt install -y git whois python python-pip hexedit vim tmux
-
+    echo 'zsh' >> ~/.bashrc
     echo 'set nu' >> ~/.vimrc
     echo 'set tabstop=4' >> ~/.vimrc
     echo 'set autoindent' >> ~/.vimrc
