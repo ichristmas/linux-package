@@ -67,18 +67,18 @@ if [ $WHO == "termux" ]; then
 
     # install zsh and oh my zsh
     apt install -y zsh
-    echo 'sshd' >> ~/.bashrc
     echo 'zsh' >> ~/.bashrc
     echo 'clear' >> ~/.zshrc
     echo 'figlet christmas' >> ~/.zshrc
-    echo 'alias c="xclip -selection clipboard"' >> .zshrc
+    echo 'sshd' >> ~/.zshrc
 
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+    bash -c "$(curl -fsSL https://git.io/oh-my-termux)"
     
 elif [ $WHO == "nethunter" ]; then
 
     wget https://http.kali.org/kali/pool/main/k/kali-archive-keyring/kali-archive-keyring_2018.1_all.deb
     apt install ./kali-archive-keyring_2018.1_all.deb
+    rm kali-archive-keyring_2018.1_all.deb
 
     # general program
     apt update
@@ -87,7 +87,6 @@ elif [ $WHO == "nethunter" ]; then
     
     echo 'clear' >> ~/.zshrc
     echo 'figlet Kali Linux NetHunter' >> ~/.zshrc
-    echo 'alias c="xclip -selection clipboard"' >> .zshrc
 
 
 
@@ -124,6 +123,6 @@ elif [ $WHO == "nethunter" ]; then
     # forensic tools
     apt install -y exiftool
 
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+    bash -c "$(curl -fsSL https://git.io/oh-my-termux)"
 
 fi
