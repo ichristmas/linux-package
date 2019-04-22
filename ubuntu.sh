@@ -8,9 +8,9 @@ sudo apt -y autoremove
 
 
 
-####################
-#  general program #
-####################
+###################
+# general program #
+###################
 
 sudo apt install -y aptitude figlet kazam vlc keepass2 ffmpeg unrar unzip htop traceroute dkms gnome-system-tools acpitool curl jq lm-sensors lolcat cmatrix p7zip-full xpad net-tools gnome-tweak-tool xclip xfce4-terminal
 sudo apt-get install -y --no-install-recommends gnome-panel

@@ -71,6 +71,8 @@ if [ $WHO == "termux" ]; then
     echo 'zsh' >> ~/.bashrc
     echo 'clear' >> ~/.zshrc
     echo 'figlet christmas' >> ~/.zshrc
+    echo 'alias c="xclip -selection clipboard"' >> .zshrc
+
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
     
 elif [ $WHO == "nethunter" ]; then
@@ -78,8 +80,25 @@ elif [ $WHO == "nethunter" ]; then
     wget https://http.kali.org/kali/pool/main/k/kali-archive-keyring/kali-archive-keyring_2018.1_all.deb
     apt install ./kali-archive-keyring_2018.1_all.deb
 
+    # general program
     apt update
-    apt install -y aptitude figlet ffmpeg unrar unzip htop traceroute curl jq lolcat cmatrix p7zip-full net-tools xclip
+    apt install -y aptitude figlet ffmpeg unrar unzip htop traceroute curl jq lolcat cmatrix p7zip-full net-tools xclip zsh
+
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+    echo 'clear' >> ~/.zshrc
+    echo 'figlet Kali Linux NetHunter' >> ~/.zshrc
+    echo 'alias c="xclip -selection clipboard"' >> .zshrc
+
+
+
+    # developer tools
+    apt install -y git whois python python-pip hexedit vim tmux
+
+    echo 'set nu' >> ~/.vimrc
+    echo 'set tabstop=4' >> ~/.vimrc
+    echo 'set autoindent' >> ~/.vimrc
+    echo 'set background=dark' >> ~/.vimrc
+    
 
     # network tools
     apt install -y tcpdump netcat netcat-traditional nmap arp-scan tor
