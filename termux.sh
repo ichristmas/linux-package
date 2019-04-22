@@ -81,37 +81,28 @@ elif [ $WHO == "nethunter" ]; then
     apt update
     apt install -y aptitude figlet ffmpeg unrar unzip htop traceroute curl jq lolcat cmatrix p7zip-full net-tools xclip
 
-    ################
     # network tools
     apt install -y tcpdump netcat netcat-traditional nmap arp-scan tor
 
-    ###################
     # wireless hacking
     apt install -y aircrack-ng
 
-    ###################
     # network sniiffer
     apt install -y mitmf dsniff bettercap sslstrip
 
-    ####################
     # web hacking tools
     apt install -y joomscan libswitch-perl wpscan dnsmap recon-ng dirbuster dirb httrack exploitdb sublist3r webshells sslscan sqlmap
 
-    ##################
     # android pentest
     apt install -y apktool
 
-    ################
     # exploit tool
     apt install -y metasploit-framework
 
-    ###########
     # cracking
     apt install -y john wordlists findmyhash hash-identifier hashcat ocl-icd-libopencl1 hydra
 
-    #################
     # forensic tools
     apt install -y exiftool
-
 
 fi
