@@ -138,6 +138,10 @@ sudo apt install -y code
 # 	  "terminal.integrated.cursorBlinking": true,
 # 	  "terminal.integrated.fontFamily": "Hack Nerd Font", 
 # 	}
+#   "emmet.includeLanguages": {
+#       "javascript": "javascriptreact",
+#   },
+#   "emmet.triggerExpansionOnTab": true
 # }
 
 ## keyboard
