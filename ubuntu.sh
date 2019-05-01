@@ -38,6 +38,8 @@ sudo apt install -y build-essential gcc g++ gcc-multilib make automake
 sudo apt install -y default-jdk
 sudo apt install linuxbrew-wrapper
 
+sudo python3 -m pip install --upgrade pip
+
 # install hub
 sudo add-apt-repository ppa:cpick/hub
 echo 'deb http://ppa.launchpad.net/cpick/hub/ubuntu bionic main' | sudo tee /etc/apt/sources.list.d/cpick-ubuntu-hub-cosmic.list
