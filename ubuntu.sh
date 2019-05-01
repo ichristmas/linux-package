@@ -69,6 +69,8 @@ git clone https://github.com/powerline/fonts.git
 rm -rf fonts
 #----------###
 
+echo 'export EDITOR=vim' >> ~/.zshrc
+
 
 ### ----------
 # install powerlevel9k and config
