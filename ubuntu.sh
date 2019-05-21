@@ -11,7 +11,7 @@ sudo apt -y autoremove
 ###################
 # general program #
 ###################
-
+sudo add-apt-repository -y ppa:sicklylife/filezilla
 sudo apt install -y aptitude figlet kazam vlc keepass2 ffmpeg unrar unzip htop traceroute dkms gnome-system-tools acpitool curl jq lm-sensors lolcat cmatrix p7zip-full xpad net-tools gnome-tweak-tool xclip xfce4-terminal nestopia
 sudo apt-get install -y --no-install-recommends gnome-panel
 # gnome-desktop-item-edit --create-new ~/Desktop
@@ -36,13 +36,14 @@ sudo apt install -y git whois python python-pip python-dev hexedit filezilla sql
 sudo pip install --upgrade pip 
 sudo apt install -y build-essential gcc g++ gcc-multilib make automake
 sudo apt install -y default-jdk
+sudo apt install openjdk-8-jdk
 sudo apt install linuxbrew-wrapper
 
 sudo python3 -m pip install --upgrade pip
 
 # install hub
-sudo add-apt-repository ppa:cpick/hub
-echo 'deb http://ppa.launchpad.net/cpick/hub/ubuntu bionic main' | sudo tee /etc/apt/sources.list.d/cpick-ubuntu-hub-cosmic.list
+sudo add-apt-repository -y ppa:cpick/hub
+echo 'deb http://ppa.launchpad.net/cpick/hub/ubuntu bionic main' | sudo tee /etc/apt/sources.list.d/cpick-ubuntu-hub-*
 sudo apt update
 sudo apt install -y hub
 
@@ -141,20 +142,19 @@ sudo apt install -y code
 
 # setting
 # {
-#     {
-# 	    "beautify.language": {
-# 	        "html": {
-# 	            "type": ["html"],
-# 	            "ext": ["vue", "php", "blade.php"]
-# 	        }
-# 	    },
-# 	  "terminal.integrated.cursorBlinking": true,
-# 	  "terminal.integrated.fontFamily": "Hack Nerd Font", 
-# 	}
-#   "emmet.includeLanguages": {
-#       "javascript": "javascriptreact",
-#   },
-#   "emmet.triggerExpansionOnTab": true
+#     "beautify.language": {
+#         "html": {
+#             "type": ["html"],
+#             "ext": ["vue", "php", "blade.php"]
+#         }
+#     },
+#     "terminal.integrated.cursorBlinking": true,
+#     "terminal.integrated.fontFamily": "Hack Nerd Font",
+
+#     "emmet.includeLanguages": {
+#         "javascript": "javascriptreact",
+#     },
+#     "emmet.triggerExpansionOnTab": true
 # }
 
 ## keyboard
@@ -176,12 +176,33 @@ sudo apt install -y code
 ######################
 # install web server #
 ######################
+sudo add-apt-repository -y ppa:ondrej/php
+sudo add-apt-repository -y ppa:ondrej/apache2
 
 sudo apt install -y apache2 libapache2-mod-php
 sudo apt install -y php php-zip php-curl
 sudo apt install -y mysql-server
 sudo apt install -y phpmyadmin
 sudo chmod -R 777 /var/www/html
+
+rm /var/www/html/index.html
+echo "<?php phpinfo(); ?>" > /var/www/html/phpinfo.php
+
+# config apache2 allow acesss 127.0.0.1
+cat <<EOF > "/var/www/html/.htaccess"
+order allow,deny
+allow from 127.0.0.1
+EOF
+
+sudo a2enmod rewrite
+sudo systemctl restart apache2
+## /etc/apache2/sites-available/000-default.conf
+# <Directory /var/www/html>
+#         Options Indexes FollowSymLinks MultiViews
+#         AllowOverride All
+#         Require all granted
+# </Directory>
+sudo systemctl restart apache2
 
 
 #### create mysql user
@@ -209,9 +230,9 @@ sed -i 's/export PATH=\$HOME\/bin:\/usr\/local\/bin:\$PATH/export PATH=\$HOME\/b
 ################################
 
 # install node.js
-curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash -
-sudo apt install -y nodejs
-sudo snap install node --classic --channel=11
+# curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash -
+# sudo apt install -y nodejs
+sudo snap install node --classic --channel=12
 
 sudo npm install -g @angular/cli
 sudo npm install -g create-react-app
@@ -226,7 +247,7 @@ sudo apt update && sudo apt install -y yarn
 ##################
 # install docker #
 ##################
-sudo apt -y install apt-transport-https ca-certificates curl software-properties-common
+sudo apt -y install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo apt-key fingerprint 0EBFCD88
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
@@ -366,3 +387,12 @@ sudo dpkg --configure -a
 # background-color: #222222
 # font-size: 10
 # font-style: hack Regular
+
+# config git
+git config --global user.name "ichristmas"
+git config --global user.email christmas.hack9@gmail.com
+git config --global --add hub.host MY.GIT.ORG
+git config --global hub.protocol ssh
+
+ssh-keygen -t rsa -b 4096 -C ""
+cat .ssh/id_rsa.pub|c
