@@ -11,7 +11,6 @@ sudo apt -y autoremove
 ###################
 # general program #
 ###################
-sudo add-apt-repository -y ppa:sicklylife/filezilla
 sudo apt install -y aptitude figlet kazam vlc keepass2 ffmpeg unrar unzip htop traceroute dkms gnome-system-tools acpitool curl jq lm-sensors lolcat cmatrix p7zip-full xpad net-tools gnome-tweak-tool xclip xfce4-terminal nestopia
 sudo apt-get install -y --no-install-recommends gnome-panel
 # gnome-desktop-item-edit --create-new ~/Desktop
