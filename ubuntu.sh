@@ -118,6 +118,7 @@ EOF
 ###-------------------
 # add alias
 echo 'alias c="xclip -selection clipboard"' >> .zshrc
+echo 'alias open="xdg-open""' >> .zshrc
 
 # terminal font: Meslo LG S for Powerline: 10 size
 
