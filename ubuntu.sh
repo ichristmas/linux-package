@@ -115,12 +115,18 @@ EOF
 #-----------------###
 
 
+# config panel multi monitors
+git clone git://github.com/spin83/multi-monitors-add-on.git
+cp -r multi-monitors-add-on/multi-monitors-add-on@spin83 ~/.local/share/gnome-shell/extensions/
+rm -rf multi-monitors-add-on
+
 ###-------------------
 # add alias
 echo 'alias c="xclip -selection clipboard"' >> .zshrc
 echo 'alias open="xdg-open""' >> .zshrc
 
 # terminal font: Meslo LG S for Powerline: 10 size
+
 
 ###################
 # IDE Prigramming #
