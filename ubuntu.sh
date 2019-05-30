@@ -11,6 +11,7 @@ sudo apt -y autoremove
 ###################
 # general program #
 ###################
+
 sudo apt install -y aptitude figlet kazam vlc keepass2 ffmpeg unrar unzip htop traceroute dkms gnome-system-tools acpitool curl jq lm-sensors lolcat cmatrix p7zip-full xpad net-tools gnome-tweak-tool xclip xfce4-terminal nestopia
 sudo apt-get install -y --no-install-recommends gnome-panel
 # gnome-desktop-item-edit --create-new ~/Desktop
@@ -37,8 +38,8 @@ sudo apt install -y build-essential gcc g++ gcc-multilib make automake
 sudo apt install -y default-jdk
 sudo apt install openjdk-8-jdk
 sudo apt install linuxbrew-wrapper
-
 sudo python3 -m pip install --upgrade pip
+
 
 # install hub
 sudo add-apt-repository -y ppa:cpick/hub
@@ -47,16 +48,13 @@ sudo apt update
 sudo apt install -y hub
 
 
-### ----------
 # install ngrok
 wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
 unzip ngrok-stable-linux-amd64.zip
 rm -rf ngrok-stable-linux-amd64.zip
 sudo mv ngrok /usr/local/bin
-#----------###
 
 
-### ----------
 # config vim
 cat <<EOF >> ~/.vimrc
 set nu
@@ -64,55 +62,40 @@ set tabstop=4
 set autoindent
 set background=dark
 EOF
-#----------###
 
 
-### ----------
 # install oh-my-zsh and config
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-sed -i 's/# export PATH/export PATH/' .zshrc
+sed -i 's/# export PATH/export PATH/' ~/.zshrc
 
-# patch fonts zsh
+# install font zsh
 git clone https://github.com/powerline/fonts.git
 ./fonts/install.sh
 rm -rf fonts
-#----------###
-
-echo 'export EDITOR=vim' >> ~/.zshrc
 
 
-### ----------
-# install powerlevel9k and config
+# install powerlevel9k
 git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
-
-# install font by hands-on
 wget "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Hack/Regular/complete/Hack%20Regular%20Nerd%20Font%20Complete.ttf"
-
-sed -i 's/^ZSH_THEME=.*"/ZSH_THEME="powerlevel9k\/powerlevel9k"/' .zshrc
-cat <<EOF >> ".zshrc"
-export TERM="xterm-256color"
-
-POWERLEVEL9K_MODE="nerdfont-complete"
-
-POWERLEVEL9K_COMMAND_EXECUTION_TIME_BACKGROUND='245'
-POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND='black'
-POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=0
-
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(time command_execution_time dir vcs )
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
-EOF
-#----------###
+xdg-open 'Hack Regular Nerd Font Complete.ttf'
+sed -i 's/^ZSH_THEME=.*/ZSH_THEME="powerlevel9k\/powerlevel9k"\
+export TERM="xterm-256color"\
+POWERLEVEL9K_MODE="nerdfont-complete"\
+POWERLEVEL9K_COMMAND_EXECUTION_TIME_BACKGROUND="245"\
+POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND="black"\
+POWERLEVEL9K_COMMAND_EXECUTION_TIME_THRESHOLD=0\
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=\(time command_execution_time dir vcs \)\
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=\(\)\
+/' ~/.zshrc
 
 
-###-------------------
 # config tmux
 git clone https://github.com/jimeh/tmux-themepack.git ~/.tmux-themepack
-cat <<EOF > ".tmux.conf"
+cat <<EOF > "~/.tmux.conf"
 source-file "${HOME}/.tmux-themepack/powerline/block/cyan.tmuxtheme"
 set -g @plugin 'jimeh/tmux-themepack'
 set -g @themepack 'powerline/block/cyan'
 EOF
-#-----------------###
 
 
 # config panel multi monitors
@@ -120,12 +103,18 @@ git clone git://github.com/spin83/multi-monitors-add-on.git
 cp -r multi-monitors-add-on/multi-monitors-add-on@spin83 ~/.local/share/gnome-shell/extensions/
 rm -rf multi-monitors-add-on
 
-###-------------------
-# add alias
-echo 'alias c="xclip -selection clipboard"' >> .zshrc
-echo 'alias open="xdg-open""' >> .zshrc
 
-# terminal font: Meslo LG S for Powerline: 10 size
+# set vim to editor default
+echo 'export EDITOR=vim' >> ~/.zshrc
+
+
+# add alias
+echo 'alias c="xclip -selection clipboard"' >> ~/.zshrc
+echo 'alias open="xdg-open""' >> ~/.zshrc
+
+
+# terminal font: Hack, size: 10
+
 
 
 ###################
@@ -182,6 +171,7 @@ sudo apt install -y code
 ######################
 # install web server #
 ######################
+
 sudo add-apt-repository -y ppa:ondrej/php
 sudo add-apt-repository -y ppa:ondrej/apache2
 
@@ -189,8 +179,8 @@ sudo apt install -y apache2 libapache2-mod-php
 sudo apt install -y php php-zip php-curl
 sudo apt install -y mysql-server
 sudo apt install -y phpmyadmin
-sudo chmod -R 777 /var/www/html
 
+sudo chmod -R 777 /var/www/html
 rm /var/www/html/index.html
 echo "<?php phpinfo(); ?>" > /var/www/html/phpinfo.php
 
@@ -208,6 +198,17 @@ sudo systemctl restart apache2
 #         AllowOverride All
 #         Require all granted
 # </Directory>
+sudo sed -i 's/<\/VirtualHost>/    <Directory \/usr\/share\/phpmyadmin>\
+        Options Indexes FollowSymLinks MultiViews\
+        AllowOverride All\
+        Require all granted\
+    <\/Directory>\
+    <Directory \/var\/www\/html>\
+        Options Indexes FollowSymLinks MultiViews\
+        AllowOverride All\
+        Require all granted\
+    <\/Directory>\
+<\/VirtualHost>/' /etc/apache2/sites-available/000-default.conf
 sudo systemctl restart apache2
 
 
@@ -227,7 +228,7 @@ sudo chmod +x /usr/local/bin/composer
 
 # install laravel
 composer global require "laravel/installer"
-sed -i 's/export PATH=\$HOME\/bin:\/usr\/local\/bin:\$PATH/export PATH=\$HOME\/bin:\/usr\/local\/bin:\$PATH:\$HOME\/\.config\/composer\/vendor\/bin/' .zshrc
+sed -i 's/export PATH=\$HOME\/bin:\/usr\/local\/bin:\$PATH/export PATH=\$HOME\/bin:\/usr\/local\/bin:\$PATH:\$HOME\/\.config\/composer\/vendor\/bin/' ~/.zshrc
 
 
 
