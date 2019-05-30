@@ -56,12 +56,11 @@ sudo mv ngrok /usr/local/bin
 
 
 # config vim
-cat <<EOF >> ~/.vimrc
+echo "
 set nu
 set tabstop=4
 set autoindent
-set background=dark
-EOF
+set background=dark" | sudo tee -a /etc/vim/vimrc
 
 
 # install oh-my-zsh and config
