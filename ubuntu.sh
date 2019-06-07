@@ -278,7 +278,7 @@ sudo apt update
 
 ################
 # network tools
-sudo apt install -y tcpdump wireshark netcat netcat-traditional nmap arp-scan tor putty
+sudo apt install -y tcpdump wireshark netcat netcat-traditional nmap arp-scan tor putty proxychains
 
 # install wrk
 git clone https://github.com/wg/wrk.git && cd wrk && make && sudo make install && cd ~
