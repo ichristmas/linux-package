@@ -55,6 +55,10 @@ rm -rf ngrok-stable-linux-amd64.zip
 sudo mv ngrok /usr/local/bin
 
 
+# install heroku
+curl https://cli-assets.heroku.com/install-ubuntu.sh | sh
+
+
 # config vim
 echo "
 set nu
