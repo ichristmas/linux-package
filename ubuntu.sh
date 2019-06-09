@@ -13,7 +13,7 @@ sudo apt -y autoremove
 ###################
 
 sudo apt install -y aptitude figlet kazam vlc keepass2 ffmpeg unrar unzip htop traceroute dkms gnome-system-tools acpitool curl jq lm-sensors lolcat cmatrix p7zip-full xpad net-tools gnome-tweak-tool xclip xfce4-terminal nestopia
-sudo apt-get install -y --no-install-recommends gnome-panel
+sudo apt-get install -y --no-install-recommends gnome-panel rdesktop
 # gnome-desktop-item-edit --create-new ~/Desktop
 
 # install youtube-dl
