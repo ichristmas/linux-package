@@ -40,6 +40,11 @@ sudo apt install openjdk-8-jdk
 sudo apt install linuxbrew-wrapper
 sudo python3 -m pip install --upgrade pip
 
+# install postman
+sudo add-apt-repository -y ppa:tiagohillebrandt/postman
+sudo sed -i 's/disco/bionic/' /etc/apt/sources.list.d/tiagohillebrandt-ubuntu-postman-disco.list
+sudo apt update
+sudo apt install -y postman libgconf-2-4
 
 # install hub
 sudo add-apt-repository -y ppa:cpick/hub
