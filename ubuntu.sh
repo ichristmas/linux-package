@@ -240,9 +240,9 @@ sed -i 's/export PATH=\$HOME\/bin:\/usr\/local\/bin:\$PATH/export PATH=\$HOME\/b
 ################################
 
 # install node.js
-# curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash -
-# sudo apt install -y nodejs
-sudo snap install node --classic --channel=12
+curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
+sudo apt-get install -y nodejs
+# sudo snap install node --classic --channel=12
 
 sudo npm install -g @angular/cli
 sudo npm install -g create-react-app
