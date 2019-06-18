@@ -19,8 +19,11 @@ if [ $WHO == "termux" ]; then
 
     # update and install program
     apt update
-    apt install -y git curl unzip vim nmap tmux php python2 python unrar figlet htop jq libcurl
+    apt install -y git curl unzip vim nmap tmux php python2 python unrar figlet htop jq libcurl wget
     python2 -m pip install -U pip
+
+    # config wget
+    mv /data/data/com.termux/files/usr/bin/applets/wget /data/data/com.termux/files/usr/bin/applets/wget2
 
     #fix path python
     cp ~/../usr/bin/python2 ~/../usr/bin/python
