@@ -36,8 +36,8 @@ sudo apt install -y git whois python python-pip python-dev hexedit filezilla sql
 sudo pip install --upgrade pip 
 sudo apt install -y build-essential gcc g++ gcc-multilib make automake
 sudo apt install -y default-jdk
-sudo apt install openjdk-8-jdk
-sudo apt install linuxbrew-wrapper
+sudo apt install -y openjdk-8-jdk
+sudo apt install -y linuxbrew-wrapper
 sudo python3 -m pip install --upgrade pip
 
 # install postman
