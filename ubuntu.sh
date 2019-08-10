@@ -26,6 +26,8 @@ sudo chmod +x /usr/local/bin/youtube-mp3
 echo "IyEvdXNyL2Jpbi9weXRob24KCmltcG9ydCBvcwppbXBvcnQgc3lzCgoKaWYgbGVuKHN5cy5hcmd2KSAhPSA0OgoJcHJpbnQoInlvdXR1YmUtdWRlbXkgPHVzZXJuYW1lPiA8cGFzc3dvcmQ+IDx1cmw+IikKCWV4aXQoKQoKdXNlcm5hbWUgPSBzeXMuYXJndlsxXQpwYXNzd29yZCA9IHN5cy5hcmd2WzJdCnVybCA9IHN5cy5hcmd2WzNdCgpvcy5zeXN0ZW0oJ3lvdXR1YmUtZGwgLXUgIicgKyB1c2VybmFtZSArICciIC1wICInICsgcGFzc3dvcmQgKyAnIiAtbyAiJShjaGFwdGVyX251bWJlcilzLSUoY2hhcHRlcilzLyUoYXV0b251bWJlcilzLSUodGl0bGUpcy4lKGV4dClzIiAiJyArIHVybCArICciICcpCg==" | base64 -d | sudo tee /usr/local/bin/youtube-udemy
 sudo chmod +x /usr/local/bin/youtube-udemy
 
+# install scrcpy
+sudo snap install scrcpy
 
 
 ###################
