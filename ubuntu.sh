@@ -227,6 +227,9 @@ sudo systemctl restart apache2
 # GRANT ALL PRIVILEGES ON * . * TO '<user>'@'localhost';
 # FLUSH PRIVILEGES;
 
+# config password mysql-server version 8.0.x
+# ALTER user 'root'@'localhost' identified with mysql_native_password by '<PASSWORD>';
+
 
 #########################
 # install php framework #
