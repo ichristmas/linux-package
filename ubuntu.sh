@@ -42,17 +42,9 @@ sudo apt install -y openjdk-8-jdk
 sudo apt install -y linuxbrew-wrapper
 sudo python3 -m pip install --upgrade pip
 
-# install postman
-sudo add-apt-repository -y ppa:tiagohillebrandt/postman
-sudo sed -i 's/disco/bionic/' /etc/apt/sources.list.d/tiagohillebrandt-ubuntu-postman-disco.list
-sudo apt update
-sudo apt install -y postman libgconf-2-4
-
-# install hub
-sudo add-apt-repository -y ppa:cpick/hub
-echo 'deb http://ppa.launchpad.net/cpick/hub/ubuntu bionic main' | sudo tee /etc/apt/sources.list.d/cpick-ubuntu-hub-*
-sudo apt update
-sudo apt install -y hub
+# install with snap
+sudo snap install postman
+sudo snap install hub --classic
 
 
 # install ngrok
