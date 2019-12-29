@@ -221,6 +221,8 @@ sudo systemctl restart apache2
 
 # config password mysql-server version 8.0.x
 # ALTER user 'root'@'localhost' identified with mysql_native_password by '<PASSWORD>';
+echo '[mysqld]
+default_authentication_plugin=mysql_native_password' | sudo tee -a /etc/mysql/my.cnf
 
 
 #########################
