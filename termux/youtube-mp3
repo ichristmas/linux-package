@@ -1,0 +1,10 @@
+#!/usr/bin/python
+
+import os
+import sys
+
+if len(sys.argv) != 2:
+	print("youtube-mp3 <url>")
+	exit()
+
+os.system('youtube-dl --extract-audio --audio-format mp3 "' + sys.argv[1] + '"')
