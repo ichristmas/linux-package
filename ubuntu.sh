@@ -90,6 +90,11 @@ POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=\(time command_execution_time dir vcs \)\
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=\(\)\
 /' ~/.zshrc
 
+# install sh-autosuggestions plugin for zsh
+# add in .zsh
+# plugins=(zsh-autosuggestions)
+git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
 
 # config tmux
 git clone https://github.com/jimeh/tmux-themepack.git ~/.tmux-themepack
