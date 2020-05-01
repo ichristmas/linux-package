@@ -152,12 +152,37 @@ sudo apt install -y code
 #     },
 #     "terminal.integrated.cursorBlinking": true,
 #     "terminal.integrated.fontFamily": "Hack Nerd Font",
-
 #     "emmet.includeLanguages": {
 #         "javascript": "javascriptreact",
 #     },
-#     "emmet.triggerExpansionOnTab": true
-# }
+#     "emmet.triggerExpansionOnTab": true,
+#     "workbench.iconTheme": "vscode-icons",
+#     "powermode.enabled": true,
+#     "powermode.enableShake": false,
+
+#     "eslint.validate": [
+#         {
+#             "language": "vue",
+#             "autoFix": true
+#         },
+#         {
+#             "language": "javascript",
+#             "autoFix": true
+#         },
+#         {
+#             "language": "javascriptreact",
+#             "autoFix": true
+#         }
+#     ],
+#     "eslint.autoFixOnSave": true,
+#     "window.zoomLevel": 0,
+#     "editor.tabSize": 2,
+#     "editor.codeActionsOnSave": {
+#         "source.fixAll.eslint": true
+#     },
+#     "git.autofetch": true,
+#     "git.enableSmartCommit": true
+# } 
 
 ## keyboard
 # [
@@ -172,6 +197,45 @@ sudo apt install -y code
 #         "when": "editorTextFocus"
 #     },
 # ]
+
+# vs code extenstion
+code --install-extension formulahendry.auto-rename-tag
+code --install-extension hookyqr.beautify
+code --install-extension thekalinga.bootstrap4-vscode
+code --install-extension zaczero.bootstrap-v4-snippets
+code --install-extension formulahendry.code-runner
+code --install-extension streetsidesoftware.code-spell-checker
+code --install-extension andrew-codes.cypress-snippets
+code --install-extension dart-code.dart-code
+code --install-extension ms-azuretools.vscode-docker
+code --install-extension dsznajder.es7-react-js-snippets
+code --install-extension dbaeumer.vscode-eslint
+code --install-extension amandeepmittal.expressjs
+code --install-extension gurayyarar.expressjs-4-snippets
+code --install-extension dart-code.flutter
+code --install-extension alexisvt.flutter-snippets
+code --install-extension eamodio.gitlens
+code --install-extension idleberg.icon-fonts
+code --install-extension zignd.html-css-class-completion
+code --install-extension fivethree.vscode-ionic-snippets
+code --install-extension xabikos.javascriptsnippets
+code --install-extension donjayamanne.jquerysnippets
+code --install-extension onecentlin.laravel-blade
+code --install-extension austenc.laravel-blade-spacer
+code --install-extension onecentlin.laravel5-snippets
+code --install-extension christian-kohler.path-intellisense
+code --install-extension felixfbecker.php-intellisense
+code --install-extension kokororin.vscode-phpfmt
+code --install-extension hoovercj.vscode-power-mode
+code --install-extension esbenp.prettier-vscode
+code --install-extension ms-python.python
+code --install-extension jundat95.react-native-snippet
+code --install-extension equimper.react-native-react-redux
+code --install-extension xabikos.reactsnippets
+code --install-extension octref.vetur
+code --install-extension vscode-icons-team.vscode-icons
+code --install-extension hollowtree.vue-snippets
+code --install-extension vuetifyjs.vuetify-vscode
 
 
 
