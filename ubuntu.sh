@@ -350,6 +350,10 @@ npm i -g create-react-app
 npm i -g expo-cli
 npm i -g @vue/cli
 npm i -g live-server
+npm i -g serve
+npm i -g eslint
+npm i -g nodemon
+
 # sudo npm install -g pngquant-bin
 
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
