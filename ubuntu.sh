@@ -400,7 +400,7 @@ sudo ln -s /usr/share/wrk/wrk /usr/bin/
 sudo apt install -y aircrack-ng reaver mdk3 wifite
 
 ## requirement wifite
-sudo apt install -y  bully pyrit libssl-dev libcurl4-openssl-dev zlib1g-dev macchanger
+sudo apt install -y  bully libssl-dev libcurl4-openssl-dev zlib1g-dev macchanger
 git clone https://github.com/ZerBea/hcxdumptool.git && cd hcxdumptool && make && sudo make install && cd ~ && rm -rf hcxdumptool
 git clone https://github.com/ZerBea/hcxtools.git && cd hcxtools && make && sudo make install && cd ~ && rm -rf hcxtools
 
@@ -456,7 +456,7 @@ sudo apt install -y vnc-java tightvnc-java xvnc4viewer xtightvncviewer
 
 ###########
 # cracking
-sudo apt install -y john wordlists findmyhash hash-identifier hashcat ocl-icd-libopencl1 hydra
+sudo apt install -y john wordlists hash-identifier hashcat ocl-icd-libopencl1 hydra
 
 # cap2hccapx
 sudo git clone https://github.com/hashcat/hashcat-utils.git /usr/share/hashcat-utils
