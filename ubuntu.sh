@@ -338,14 +338,17 @@ sed -i 's/export PATH=\$HOME\/bin:\/usr\/local\/bin:\$PATH/export PATH=\$HOME\/b
 ################################
 
 # install node.js
-curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
-sudo apt-get install -y nodejs
-# sudo snap install node --classic --channel=12
+sudo snap install node --classic --channel=14
 
-sudo npm install -g @angular/cli
-sudo npm install -g create-react-app
-sudo npm install -g @vue/cli
-sudo npm install -g live-server
+mkdir ~/.npm-global
+npm config set prefix '~/.npm-global'
+sed -i 's/export PATH=\(.*\)/export PATH=\1:$HOME\/.npm-global\/bin/' ~/.zshrc
+
+npm i -g @angular/cli
+npm i -g create-react-app
+npm i -g expo-cli
+npm i -g @vue/cli
+npm i -g live-server
 # sudo npm install -g pngquant-bin
 
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
