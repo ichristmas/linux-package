@@ -96,7 +96,8 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=\(\)\
 # install sh-autosuggestions plugin for zsh
 # add in .zsh
 # plugins=(zsh-autosuggestions)
-git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+# git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/plugins/zsh-autosuggestions
 
 
 # config tmux
@@ -120,7 +121,7 @@ echo 'export EDITOR=vim' >> ~/.zshrc
 
 # add alias
 echo 'alias c="xclip -selection clipboard"' >> ~/.zshrc
-echo 'alias open="xdg-open""' >> ~/.zshrc
+echo 'alias open="xdg-open"' >> ~/.zshrc
 
 
 # terminal font: Hack, size: 10
