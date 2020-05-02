@@ -319,6 +319,7 @@ echo '[mysqld]
 default_authentication_plugin=mysql_native_password' | sudo tee -a /etc/mysql/my.cnf
 
 
+
 #########################
 # install php framework #
 #########################
@@ -354,6 +355,8 @@ npm i -g live-server
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 sudo apt update && sudo apt install -y yarn
+
+
 
 ##################
 # install docker #
