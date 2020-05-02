@@ -109,14 +109,6 @@ set -g @themepack 'powerline/block/cyan'
 EOF
 
 
-# config panel multi monitors
-git clone git://github.com/spin83/multi-monitors-add-on.git
-cd multi-monitors-add-on
-cp -r multi-monitors-add-on@spin83 ~/.local/share/gnome-shell/extensions/
-cd ..
-rm -rf multi-monitors-add-on
-
-
 # set vim to editor default
 echo 'export EDITOR=vim' >> ~/.zshrc
 
@@ -127,6 +119,32 @@ echo 'alias open="xdg-open"' >> ~/.zshrc
 
 
 # terminal font: Hack, size: 10
+
+
+
+####################
+# ubuntu extension #
+####################
+
+# multi-monitors-add-on
+git clone git://github.com/spin83/multi-monitors-add-on.git
+cd multi-monitors-add-on
+cp -r multi-monitors-add-on@spin83 ~/.local/share/gnome-shell/extensions/
+cd ..
+rm -rf multi-monitors-add-on
+
+# Uptime-Indicator
+git clone https://github.com/Gniourf/Uptime-Indicator.git
+cd Uptime-Indicator
+make install
+cd ..
+rm -rf Uptime-Indicator
+
+# CpuMemInfo
+wget https://extensions.gnome.org/extension-data/CpuMemInfo%40xesnet.fr.v12.shell-extension.zip
+unzip CpuMemInfo@xesnet.fr.v12.shell-extension.zip -d ~/.local/share/gnome-shell/extensions/CpuMemInfo@xesnet.fr
+
+# alt+f2 r
 
 
 
