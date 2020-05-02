@@ -111,7 +111,9 @@ EOF
 
 # config panel multi monitors
 git clone git://github.com/spin83/multi-monitors-add-on.git
-cp -r multi-monitors-add-on/multi-monitors-add-on@spin83 ~/.local/share/gnome-shell/extensions/
+cd multi-monitors-add-on
+cp -r multi-monitors-add-on@spin83 ~/.local/share/gnome-shell/extensions/
+cd ..
 rm -rf multi-monitors-add-on
 
 
