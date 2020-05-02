@@ -143,6 +143,7 @@ rm -rf Uptime-Indicator
 # CpuMemInfo
 wget https://extensions.gnome.org/extension-data/CpuMemInfo%40xesnet.fr.v12.shell-extension.zip
 unzip CpuMemInfo@xesnet.fr.v12.shell-extension.zip -d ~/.local/share/gnome-shell/extensions/CpuMemInfo@xesnet.fr
+rm -rf CpuMemInfo@xesnet.fr.v12.shell-extension.zip
 
 # alt+f2 r
 
