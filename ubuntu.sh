@@ -37,13 +37,14 @@ sudo snap install scrcpy
 # developer tools #
 ###################
 
-sudo apt install -y git whois python python-pip python-dev hexedit filezilla sqlite3 vim zsh tmux
-sudo pip install --upgrade pip 
+sudo apt install -y git whois python python-dev hexedit filezilla sqlite3 vim zsh tmux
+curl https://bootstrap.pypa.io/get-pip.py --output get-pip.py
+sudo python2 get-pip.py
+rm -rf get-pip.py
 sudo apt install -y build-essential gcc g++ gcc-multilib make automake
 sudo apt install -y default-jdk
 sudo apt install -y openjdk-8-jdk
 sudo apt install -y linuxbrew-wrapper
-sudo python3 -m pip install --upgrade pip
 
 # install with snap
 sudo snap install postman
@@ -95,18 +96,16 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=\(\)\
 
 # install sh-autosuggestions plugin for zsh
 # add in .zsh
-# plugins=(zsh-autosuggestions)
+# plugins=(git zsh-autosuggestions)
 # git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/plugins/zsh-autosuggestions
 
 
 # config tmux
-git clone https://github.com/jimeh/tmux-themepack.git ~/.tmux-themepack
-cat <<EOF > "~/.tmux.conf"
+echo "
 source-file "${HOME}/.tmux-themepack/powerline/block/cyan.tmuxtheme"
 set -g @plugin 'jimeh/tmux-themepack'
-set -g @themepack 'powerline/block/cyan'
-EOF
+set -g @themepack 'powerline/block/cyan'" | sudo tee ~/.tmux.conf
 
 
 # set vim to editor default
@@ -417,11 +416,7 @@ git clone https://github.com/ZerBea/hcxtools.git && cd hcxtools && make && sudo 
 
 ###################
 # network sniiffer
-sudo apt install -y mitmf dsniff bettercap sslstrip
-
-# fix mitmf
-pip install beautifulsoup4
-pip install Twisted==15.5.0
+sudo apt install -y dsniff bettercap
 
 
 
@@ -440,13 +435,11 @@ sudo ln -s /usr/share/burpsuite/run.sh /usr/bin/burpsuite
 
 sudo cp ~/Downloads/resources/Media/icon64.png /usr/share/burpsuite
 rm -rf *
-gnome-desktop-item-edit --create-new ~/Desktop
-sudo mv ~/Desktop/burpsuite.desktop /usr/share/applications
 
 # fixed burpsuite SSL secure connect failed
-sudo update-alternatives --config java
-sudo update-alternatives --config javac
-sudo update-alternatives --config javaws
+# sudo update-alternatives --config java
+# sudo update-alternatives --config javac
+# sudo update-alternatives --config javaws
 
 
 ##################
@@ -458,8 +451,6 @@ sudo apt install -y apktool
 ################
 # exploit tool
 sudo apt install -y metasploit-framework
-sudo apt install -y vncviewer
-sudo apt install -y vnc-java tightvnc-java xvnc4viewer xtightvncviewer
 
 
 
@@ -520,3 +511,13 @@ git config --global push.default current
 
 ssh-keygen -t rsa -b 4096 -C ""
 cat .ssh/id_rsa.pub|c
+
+# config display
+sudo cvt 1920 1080
+sudo xrandr --newmode "1920x1080_60.00"  173.00  1920 2048 2248 2576  1080 1083 1088 1120 -hsync +vsync
+sudo xrandr --addmode LVDS-1 "1920x1080_60.00"
+
+echo "
+xrandr --newmode "1920x1080_60.00"  173.00  1920 2048 2248 2576  1080 1083 1088 1120 -hsync +vsync
+xrandr --addmode LVDS-1 "1920x1080_60.00"
+" >> ~/.profile
