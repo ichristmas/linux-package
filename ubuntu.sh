@@ -12,7 +12,7 @@ sudo apt -y autoremove
 # general program #
 ###################
 
-sudo apt install -y aptitude figlet kazam vlc keepass2 ffmpeg unrar unzip htop traceroute dkms gnome-system-tools acpitool curl jq lm-sensors lolcat cmatrix p7zip-full xpad net-tools gnome-tweak-tool xclip xfce4-terminal nestopia
+sudo apt install -y aptitude figlet kazam vlc keepass2 ffmpeg unrar unzip htop traceroute dkms gnome-system-tools acpitool curl lm-sensors lolcat cmatrix p7zip-full xpad net-tools gnome-tweak-tool xclip xfce4-terminal nestopia
 sudo apt-get install -y --no-install-recommends gnome-panel rdesktop
 # gnome-desktop-item-edit --create-new ~/Desktop
 
@@ -37,14 +37,12 @@ sudo snap install scrcpy
 # developer tools #
 ###################
 
-sudo apt install -y git whois python python-dev hexedit filezilla sqlite3 vim zsh tmux
+sudo apt install -y git whois python  python3-pip python-dev hexedit filezilla sqlite3 vim zsh tmux
 curl https://bootstrap.pypa.io/get-pip.py --output get-pip.py
 sudo python2 get-pip.py
 rm -rf get-pip.py
 sudo apt install -y build-essential gcc g++ gcc-multilib make automake
 sudo apt install -y default-jdk
-sudo apt install -y openjdk-8-jdk
-sudo apt install -y linuxbrew-wrapper
 
 # install with snap
 sudo snap install postman
@@ -276,6 +274,12 @@ sudo apt install -y php php-zip php-curl
 sudo apt install -y mysql-server
 sudo apt install -y phpmyadmin
 
+# wget phpmyadmin
+unzip phpMyAdmin*
+rm  -rf phpMyAdmin*.zip
+sudo mv /usr/share/phpmyadmin /usr/share/phpmyadmin_bak
+sudo mv phpMyAdmin* /usr/share/phpmyadmin
+
 sudo chmod -R 777 /var/www/html
 rm /var/www/html/index.html
 echo "<?php phpinfo(); ?>" > /var/www/html/phpinfo.php
@@ -355,8 +359,6 @@ npm i -g live-server
 npm i -g serve
 npm i -g eslint
 npm i -g nodemon
-
-# sudo npm install -g pngquant-bin
 
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
