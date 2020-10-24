@@ -100,7 +100,6 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/plugins/
 
 
 # config tmux
-git clone https://github.com/jimeh/tmux-themepack.git ~/.tmux-themepack
 echo "
 source-file "${HOME}/.tmux-themepack/powerline/block/cyan.tmuxtheme"
 set -g @plugin 'jimeh/tmux-themepack'
@@ -168,6 +167,7 @@ sudo apt install -y code
 
 # setting
 # {
+#     "workbench.iconTheme": "vscode-icons",
 #     "beautify.language": {
 #         "html": {
 #             "type": ["html"],
@@ -180,33 +180,19 @@ sudo apt install -y code
 #         "javascript": "javascriptreact",
 #     },
 #     "emmet.triggerExpansionOnTab": true,
-#     "workbench.iconTheme": "vscode-icons",
 #     "powermode.enabled": true,
 #     "powermode.enableShake": false,
-
-#     "eslint.validate": [
-#         {
-#             "language": "vue",
-#             "autoFix": true
-#         },
-#         {
-#             "language": "javascript",
-#             "autoFix": true
-#         },
-#         {
-#             "language": "javascriptreact",
-#             "autoFix": true
-#         }
-#     ],
-#     "eslint.autoFixOnSave": true,
-#     "window.zoomLevel": 0,
-#     "editor.tabSize": 2,
+#     // "editor.tabSize": 2,
 #     "editor.codeActionsOnSave": {
 #         "source.fixAll.eslint": true
 #     },
 #     "git.autofetch": true,
-#     "git.enableSmartCommit": true
-# } 
+#     "git.enableSmartCommit": true,
+#     "[blade]": {
+#         "editor.defaultFormatter": "apility.beautify-blade"
+#     },
+#     "window.zoomLevel": 0
+# }
 
 ## keyboard
 # [
@@ -346,10 +332,9 @@ sed -i 's/export PATH=\$HOME\/bin:\/usr\/local\/bin:\$PATH/export PATH=\$HOME\/b
 ################################
 
 # install node.js
-sudo snap install node --classic --channel=15
+sudo snap install node --classic --channel=14
 
 mkdir ~/.npm-global
-mkdir ~/.npm-global/lib
 npm config set prefix '~/.npm-global'
 sed -i 's/export PATH=\(.*\)/export PATH=\1:$HOME\/.npm-global\/bin/' ~/.zshrc
 
@@ -361,7 +346,10 @@ npm i -g live-server
 npm i -g serve
 npm i -g eslint
 npm i -g nodemon
-npm i -g yarn
+
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+sudo apt update && sudo apt install -y yarn
 
 
 
