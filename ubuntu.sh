@@ -346,7 +346,7 @@ sed -i 's/export PATH=\$HOME\/bin:\/usr\/local\/bin:\$PATH/export PATH=\$HOME\/b
 ################################
 
 # install node.js
-sudo snap install node --classic --channel=14
+sudo snap install node --classic --channel=15
 
 mkdir ~/.npm-global
 npm config set prefix '~/.npm-global'
