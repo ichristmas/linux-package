@@ -349,6 +349,7 @@ sed -i 's/export PATH=\$HOME\/bin:\/usr\/local\/bin:\$PATH/export PATH=\$HOME\/b
 sudo snap install node --classic --channel=15
 
 mkdir ~/.npm-global
+mkdir ~/.npm-global/lib
 npm config set prefix '~/.npm-global'
 sed -i 's/export PATH=\(.*\)/export PATH=\1:$HOME\/.npm-global\/bin/' ~/.zshrc
 
