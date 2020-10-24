@@ -361,10 +361,7 @@ npm i -g live-server
 npm i -g serve
 npm i -g eslint
 npm i -g nodemon
-
-curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-sudo apt update && sudo apt install -y yarn
+npm i -g yarn
 
 
 
