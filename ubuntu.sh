@@ -211,10 +211,13 @@ sudo apt install -y code
 # vs code extenstion
 code --install-extension formulahendry.auto-rename-tag
 code --install-extension hookyqr.beautify
+code --install-extension apility.beautify-blade
 code --install-extension thekalinga.bootstrap4-vscode
 code --install-extension zaczero.bootstrap-v4-snippets
+code --install-extension CoenraadS.bracket-pair-colorizer-2
 code --install-extension formulahendry.code-runner
 code --install-extension streetsidesoftware.code-spell-checker
+code --install-extension adpyke.codesnap
 code --install-extension andrew-codes.cypress-snippets
 code --install-extension dart-code.dart-code
 code --install-extension ms-azuretools.vscode-docker
@@ -222,6 +225,7 @@ code --install-extension dsznajder.es7-react-js-snippets
 code --install-extension dbaeumer.vscode-eslint
 code --install-extension amandeepmittal.expressjs
 code --install-extension gurayyarar.expressjs-4-snippets
+code --install-extension cstrap.flask-snippets
 code --install-extension dart-code.flutter
 code --install-extension alexisvt.flutter-snippets
 code --install-extension eamodio.gitlens
@@ -233,6 +237,9 @@ code --install-extension donjayamanne.jquerysnippets
 code --install-extension onecentlin.laravel-blade
 code --install-extension austenc.laravel-blade-spacer
 code --install-extension onecentlin.laravel5-snippets
+code --install-extension MS-vsliveshare.vsliveshare
+code --install-extension yzhang.markdown-all-in-one
+code --install-extension foxundermoon.next-js
 code --install-extension christian-kohler.path-intellisense
 code --install-extension felixfbecker.php-intellisense
 code --install-extension kokororin.vscode-phpfmt
@@ -241,6 +248,7 @@ code --install-extension esbenp.prettier-vscode
 code --install-extension ms-python.python
 code --install-extension jundat95.react-native-snippet
 code --install-extension equimper.react-native-react-redux
+code --install-extension ms-vscode-remote.remote-ssh 
 code --install-extension xabikos.reactsnippets
 code --install-extension octref.vetur
 code --install-extension vscode-icons-team.vscode-icons
