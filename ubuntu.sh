@@ -100,6 +100,7 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/plugins/
 
 
 # config tmux
+git clone https://github.com/jimeh/tmux-themepack.git ~/.tmux-themepack
 echo "
 source-file "${HOME}/.tmux-themepack/powerline/block/cyan.tmuxtheme"
 set -g @plugin 'jimeh/tmux-themepack'
