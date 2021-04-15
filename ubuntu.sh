@@ -254,6 +254,7 @@ code --install-extension octref.vetur
 code --install-extension vscode-icons-team.vscode-icons
 code --install-extension hollowtree.vue-snippets
 code --install-extension vuetifyjs.vuetify-vscode
+code --install-extension TabNine.tabnine-vscode
 
 
 
