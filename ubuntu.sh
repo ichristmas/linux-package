@@ -12,7 +12,7 @@ sudo apt -y autoremove
 # general program #
 ###################
 
-sudo apt install -y aptitude figlet kazam vlc keepass2 ffmpeg unrar unzip htop traceroute dkms gnome-system-tools acpitool curl lm-sensors lolcat cmatrix p7zip-full xpad net-tools gnome-tweak-tool xclip xfce4-terminal nestopia
+sudo apt install -y aptitude figlet kazam vlc keepass2 ffmpeg unrar unzip htop traceroute dkms gnome-system-tools acpitool curl lm-sensors lolcat cmatrix p7zip-full xpad net-tools gnome-tweaks xclip xfce4-terminal nestopia
 sudo apt-get install -y --no-install-recommends gnome-panel rdesktop
 # gnome-desktop-item-edit --create-new ~/Desktop
 
@@ -116,7 +116,10 @@ echo 'alias open="xdg-open"' >> ~/.zshrc
 echo 'cdd () { for i in $(seq 1 1 "$1"); do cd ..; done }' >> ~/.zshrc
 
 
-# terminal font: Hack, size: 10
+# config terminal
+# background-color: #222222
+# font-size: 10
+# font-style: hack Regular
 
 
 
@@ -144,6 +147,7 @@ unzip CpuMemInfo@xesnet.fr.v12.shell-extension.zip -d ~/.local/share/gnome-shell
 rm -rf CpuMemInfo@xesnet.fr.v12.shell-extension.zip
 
 # alt+f2 r
+# press button windows and search extensions
 
 
 
@@ -346,10 +350,11 @@ npm i -g live-server
 npm i -g serve
 npm i -g eslint
 npm i -g nodemon
+npm i -g yarn
 
-curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-sudo apt update && sudo apt install -y yarn
+# curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+# echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+# sudo apt update && sudo apt install -y yarn
 
 
 
@@ -357,9 +362,11 @@ sudo apt update && sudo apt install -y yarn
 # install docker #
 ##################
 sudo apt -y install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo apt-key fingerprint 0EBFCD88
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+sudo apt update
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+  $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
 sudo apt -y install docker-ce docker-ce-cli containerd.io
 
 sudo groupadd docker
@@ -378,7 +385,8 @@ sudo chmod +x /usr/local/bin/docker-compose
 # sudo apt-key adv --keyserver pgp.mit.edu --recv-keys ED444FF07D8D0BF6
 # echo "deb http://http.kali.org/kali kali-rolling main contrib non-free" | sudo tee /etc/apt/sources.list
 wget -q -O - https://archive.kali.org/archive-key.asc  | sudo apt-key add
-echo "deb http://mirror1.ku.ac.th/kali kali-rolling main contrib non-free" | sudo tee -a /etc/apt/sources.list
+# echo "deb http://mirror1.ku.ac.th/kali kali-rolling main contrib non-free" | sudo tee -a /etc/apt/sources.list
+echo "deb http://http.kali.org/kali kali-rolling main non-free contrib" | sudo tee -a /etc/apt/sources.list
 sudo apt update
 
 
@@ -413,7 +421,7 @@ sudo apt install -y dsniff bettercap
 
 ####################
 # web hacking tools
-sudo apt install -y joomscan libswitch-perl wpscan dnsmap recon-ng dirbuster dirb httrack exploitdb sublist3r webshells sslscan sqlmap
+sudo apt install -y joomscan libswitch-perl wpscan dnsmap recon-ng dirbuster dirb httrack exploitdb sublist3r sslscan sqlmap
 
 # burpsuite
 unzip *.jar
@@ -488,10 +496,6 @@ sudo rm /var/lib/dpkg/lock
 sudo dpkg --configure -a
 
 
-# config terminal
-# background-color: #222222
-# font-size: 10
-# font-style: hack Regular
 
 # config git
 git config --global user.name "ichristmas"
