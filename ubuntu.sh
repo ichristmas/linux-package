@@ -336,7 +336,7 @@ sudo chmod +x /usr/local/bin/composer
 
 # install laravel
 composer global require "laravel/installer"
-sed -i 's/export PATH=\$HOME\/bin:\/usr\/local\/bin:\$PATH/export PATH=\$HOME\/bin:\/usr\/local\/bin:\$PATH:\$HOME\/\.config\/composer\/vendor\/bin/' ~/.zshrc
+echo 'export PATH=$PATH:$HOME/.config/composer/vendor/bin' >> ~/.zshrc
 
 
 
@@ -370,7 +370,7 @@ npm i -g yarn
 # install golang #
 ##################
 sudo tar -C /usr/local -xzf go1.17.2.linux-amd64.tar.gz
-echo "export PATH=$PATH:/usr/local/go/bin" >> ~/.zshrc
+echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.zshrc
 curl -sSfL https://raw.githubusercontent.com/cosmtrek/air/master/install.sh | sh -s
 
 
