@@ -349,7 +349,7 @@ sudo snap install node --classic --channel=14
 
 mkdir ~/.npm-global
 npm config set prefix '~/.npm-global'
-sed -i 's/export PATH=\(.*\)/export PATH=\1:$HOME\/.npm-global\/bin/' ~/.zshrc
+echo 'export PATH="$PATH:$HOME/.npm-global/bin"' >> ~/.zshrc
 
 npm i -g @angular/cli
 npm i -g create-react-app
