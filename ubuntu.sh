@@ -523,7 +523,8 @@ git config --global user.email christmas.hack9@gmail.com
 git config --global --add hub.host MY.GIT.ORG
 git config --global hub.protocol ssh
 git config --global push.default current
-git config --global pull.ff only
+git config --global pull.rebase false
+# git config --global pull.ff only
 
 ssh-keygen -t rsa -b 4096 -C ""
 cat .ssh/id_rsa.pub|c
