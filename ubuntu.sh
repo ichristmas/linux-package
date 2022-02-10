@@ -128,7 +128,7 @@ echo 'cdd () { for i in $(seq 1 1 "$1"); do cd ..; done }' >> ~/.zshrc
 ####################
 
 # multi-monitors-add-on
-git clone git://github.com/spin83/multi-monitors-add-on.git
+git clone https://github.com/realh/multi-monitors-add-on.git
 cd multi-monitors-add-on
 cp -r multi-monitors-add-on@spin83 ~/.local/share/gnome-shell/extensions/
 cd ..
