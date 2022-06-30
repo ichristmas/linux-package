@@ -6,69 +6,11 @@ sudo apt update
 sudo apt -y upgrade
 sudo apt -y autoremove
 
+###############
+# install zsh #
+###############
 
-
-###################
-# general program #
-###################
-
-sudo apt install -y aptitude figlet kazam vlc keepass2 ffmpeg unrar unzip htop traceroute dkms gnome-system-tools acpitool curl lm-sensors lolcat cmatrix p7zip-full xpad net-tools gnome-tweaks xclip xfce4-terminal nestopia
-sudo apt-get install -y --no-install-recommends gnome-panel rdesktop
-# gnome-desktop-item-edit --create-new ~/Desktop
-
-# install youtube-dl
-sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl
-sudo chmod +x /usr/local/bin/youtube-dl
-
-echo "IyEvdXNyL2Jpbi9weXRob24KCmltcG9ydCBvcwppbXBvcnQgc3lzCgppZiBsZW4oc3lzLmFyZ3YpICE9IDI6CglwcmludCgieW91dHViZS1tcDMgPHVybD4iKQoJZXhpdCgpCgpvcy5zeXN0ZW0oJ3lvdXR1YmUtZGwgLS1leHRyYWN0LWF1ZGlvIC0tYXVkaW8tZm9ybWF0IG1wMyAiJyArIHN5cy5hcmd2WzFdICsgJyInKQo=" | base64 -d | sudo tee /usr/local/bin/youtube-mp3
-sudo chmod +x /usr/local/bin/youtube-mp3
-
-echo "IyEvdXNyL2Jpbi9weXRob24KCmltcG9ydCBvcwppbXBvcnQgc3lzCgoKaWYgbGVuKHN5cy5hcmd2KSAhPSA0OgoJcHJpbnQoInlvdXR1YmUtdWRlbXkgPHVzZXJuYW1lPiA8cGFzc3dvcmQ+IDx1cmw+IikKCWV4aXQoKQoKdXNlcm5hbWUgPSBzeXMuYXJndlsxXQpwYXNzd29yZCA9IHN5cy5hcmd2WzJdCnVybCA9IHN5cy5hcmd2WzNdCgpvcy5zeXN0ZW0oJ3lvdXR1YmUtZGwgLXUgIicgKyB1c2VybmFtZSArICciIC1wICInICsgcGFzc3dvcmQgKyAnIiAtbyAiJShjaGFwdGVyX251bWJlcilzLSUoY2hhcHRlcilzLyUoYXV0b251bWJlcilzLSUodGl0bGUpcy4lKGV4dClzIiAiJyArIHVybCArICciICcpCg==" | base64 -d | sudo tee /usr/local/bin/youtube-udemy
-sudo chmod +x /usr/local/bin/youtube-udemy
-
-echo "IyEvdXNyL2Jpbi9weXRob24zCgppbXBvcnQgcmUKaW1wb3J0IG9zCmltcG9ydCBzeXMKaW1wb3J0IHJlcXVlc3RzCgpkZWYgZ2V0VXJsSW1hZ2UodXJsKToKICByZXEgPSByZXF1ZXN0cy5nZXQodXJsKQogIHVybF9pbWFnZSA9IHJlLmZpbmRhbGwoJ2lzcGxheV91cmwiOiIoLiopIiwiZGlzcGxheV9yZXNvdXJjZXMnLCByZXEudGV4dClbMF0ucmVwbGFjZSgiXFx1MDAyNiIsIiYiKQogIHJldHVybiB1cmxfaW1hZ2UKCmlmIHN5cy5hcmd2WzFdID09ICctZCc6CiAgZmlsZU5hbWUgPSByZS5zZWFyY2goJyhbYS16LTAtOVxfXStcLmpwZyknLCBnZXRVcmxJbWFnZShzeXMuYXJndlsyXSkpWzBdCiAgb3Muc3lzdGVtKCd3Z2V0ICInK2dldFVybEltYWdlKHN5cy5hcmd2WzJdKSsnIiAtTyAnK2ZpbGVOYW1lKQplbHNlOgogIG9zLnN5c3RlbSgnZ29vZ2xlLWNocm9tZSAiJytnZXRVcmxJbWFnZShzeXMuYXJndlsxXSkrJyInKQo=" | base64 -d | sudo tee /usr/local/bin/ig
-sudo chmod +x /usr/local/bin/ig
-
-# install scrcpy
-sudo snap install scrcpy
-
-
-###################
-# developer tools #
-###################
-
-sudo apt install -y git whois python  python3-pip python-dev hexedit filezilla sqlite3 vim zsh tmux
-curl https://bootstrap.pypa.io/get-pip.py --output get-pip.py
-sudo python2 get-pip.py
-rm -rf get-pip.py
-sudo apt install -y build-essential gcc g++ gcc-multilib make automake
-sudo apt install -y default-jdk
-
-# install with snap
-sudo snap install postman
-sudo snap install hub --classic
-
-
-# install ngrok
-wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
-unzip ngrok-stable-linux-amd64.zip
-rm -rf ngrok-stable-linux-amd64.zip
-sudo mv ngrok /usr/local/bin
-
-
-# install heroku
-curl https://cli-assets.heroku.com/install-ubuntu.sh | sh
-
-
-# config vim
-echo "
-set nu
-set tabstop=4
-set autoindent
-set background=dark" | sudo tee -a /etc/vim/vimrc
-
-
-# install oh-my-zsh and config
+sudo apt install -y zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 sed -i 's/# export PATH/export PATH/' ~/.zshrc
 
@@ -98,6 +40,67 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=\(\)\
 # git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/plugins/zsh-autosuggestions
 
+# config terminal
+# background-color: #222222
+# font-size: 10
+# font-style: hack Regular
+
+
+###################
+# general program #
+###################
+
+sudo apt install -y aptitude figlet kazam vlc keepass2 ffmpeg unrar unzip htop traceroute dkms gnome-system-tools acpitool curl lm-sensors lolcat cmatrix p7zip-full xpad net-tools gnome-tweaks xclip xfce4-terminal nestopia
+
+
+# install youtube-dl
+sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl
+sudo chmod +x /usr/local/bin/youtube-dl
+
+echo "IyEvdXNyL2Jpbi9weXRob24KCmltcG9ydCBvcwppbXBvcnQgc3lzCgppZiBsZW4oc3lzLmFyZ3YpICE9IDI6CglwcmludCgieW91dHViZS1tcDMgPHVybD4iKQoJZXhpdCgpCgpvcy5zeXN0ZW0oJ3lvdXR1YmUtZGwgLS1leHRyYWN0LWF1ZGlvIC0tYXVkaW8tZm9ybWF0IG1wMyAiJyArIHN5cy5hcmd2WzFdICsgJyInKQo=" | base64 -d | sudo tee /usr/local/bin/youtube-mp3
+sudo chmod +x /usr/local/bin/youtube-mp3
+
+echo "IyEvdXNyL2Jpbi9weXRob24KCmltcG9ydCBvcwppbXBvcnQgc3lzCgoKaWYgbGVuKHN5cy5hcmd2KSAhPSA0OgoJcHJpbnQoInlvdXR1YmUtdWRlbXkgPHVzZXJuYW1lPiA8cGFzc3dvcmQ+IDx1cmw+IikKCWV4aXQoKQoKdXNlcm5hbWUgPSBzeXMuYXJndlsxXQpwYXNzd29yZCA9IHN5cy5hcmd2WzJdCnVybCA9IHN5cy5hcmd2WzNdCgpvcy5zeXN0ZW0oJ3lvdXR1YmUtZGwgLXUgIicgKyB1c2VybmFtZSArICciIC1wICInICsgcGFzc3dvcmQgKyAnIiAtbyAiJShjaGFwdGVyX251bWJlcilzLSUoY2hhcHRlcilzLyUoYXV0b251bWJlcilzLSUodGl0bGUpcy4lKGV4dClzIiAiJyArIHVybCArICciICcpCg==" | base64 -d | sudo tee /usr/local/bin/youtube-udemy
+sudo chmod +x /usr/local/bin/youtube-udemy
+
+echo "IyEvdXNyL2Jpbi9weXRob24zCgppbXBvcnQgcmUKaW1wb3J0IG9zCmltcG9ydCBzeXMKaW1wb3J0IHJlcXVlc3RzCgpkZWYgZ2V0VXJsSW1hZ2UodXJsKToKICByZXEgPSByZXF1ZXN0cy5nZXQodXJsKQogIHVybF9pbWFnZSA9IHJlLmZpbmRhbGwoJ2lzcGxheV91cmwiOiIoLiopIiwiZGlzcGxheV9yZXNvdXJjZXMnLCByZXEudGV4dClbMF0ucmVwbGFjZSgiXFx1MDAyNiIsIiYiKQogIHJldHVybiB1cmxfaW1hZ2UKCmlmIHN5cy5hcmd2WzFdID09ICctZCc6CiAgZmlsZU5hbWUgPSByZS5zZWFyY2goJyhbYS16LTAtOVxfXStcLmpwZyknLCBnZXRVcmxJbWFnZShzeXMuYXJndlsyXSkpWzBdCiAgb3Muc3lzdGVtKCd3Z2V0ICInK2dldFVybEltYWdlKHN5cy5hcmd2WzJdKSsnIiAtTyAnK2ZpbGVOYW1lKQplbHNlOgogIG9zLnN5c3RlbSgnZ29vZ2xlLWNocm9tZSAiJytnZXRVcmxJbWFnZShzeXMuYXJndlsxXSkrJyInKQo=" | base64 -d | sudo tee /usr/local/bin/ig
+sudo chmod +x /usr/local/bin/ig
+
+# install scrcpy for mobile
+sudo snap install scrcpy
+
+
+###################
+# developer tools #
+###################
+
+sudo apt install -y git whois python3-pip hexedit filezilla sqlite3 vim tmux
+sudo apt install -y build-essential gcc g++ gcc-multilib make automake
+sudo apt install -y default-jdk
+
+# install with snap
+sudo snap install postman
+sudo snap install hub --classic
+
+
+# install ngrok
+wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
+unzip ngrok-stable-linux-amd64.zip
+rm -rf ngrok-stable-linux-amd64.zip
+sudo mv ngrok /usr/local/bin
+
+
+# install heroku
+curl https://cli-assets.heroku.com/install-ubuntu.sh | sh
+
+
+# config vim
+echo "
+set nu
+set tabstop=4
+set autoindent
+set background=dark" | sudo tee -a /etc/vim/vimrc
+
 
 # config tmux
 echo "
@@ -114,13 +117,6 @@ echo 'export EDITOR=vim' >> ~/.zshrc
 echo 'alias c="xclip -selection clipboard"' >> ~/.zshrc
 echo 'alias open="xdg-open"' >> ~/.zshrc
 echo 'cdd () { for i in $(seq 1 1 "$1"); do cd ..; done }' >> ~/.zshrc
-
-
-# config terminal
-# background-color: #222222
-# font-size: 10
-# font-style: hack Regular
-
 
 
 ####################
@@ -148,118 +144,6 @@ rm -rf CpuMemInfo@xesnet.fr.v12.shell-extension.zip
 
 # alt+f2 r
 # press button windows and search extensions
-
-
-
-###################
-# IDE Prigramming #
-###################
-
-# install sublime text 3
-wget -qO - https://download.sublimetext.com/sublimehq-pub.gpg | sudo apt-key add -
-sudo apt install apt-transport-https
-echo "deb https://download.sublimetext.com/ apt/stable/" | sudo tee /etc/apt/sources.list.d/sublime-text.list
-sudo apt update
-sudo apt install -y sublime-text
-
-# install vs code
-curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-sudo mv microsoft.gpg /etc/apt/trusted.gpg.d/microsoft.gpg
-sudo sh -c 'echo "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
-sudo apt update
-sudo apt install -y code
-
-# setting
-# {
-#     "workbench.iconTheme": "vscode-icons",
-#     "beautify.language": {
-#         "html": {
-#             "type": ["html"],
-#             "ext": ["vue", "php", "blade.php"]
-#         }
-#     },
-#     "terminal.integrated.cursorBlinking": true,
-#     "terminal.integrated.fontFamily": "Hack Nerd Font",
-#     "emmet.includeLanguages": {
-#         "javascript": "javascriptreact",
-#     },
-#     "emmet.triggerExpansionOnTab": true,
-#     "powermode.enabled": true,
-#     "powermode.enableShake": false,
-#     // "editor.tabSize": 2,
-#     "editor.codeActionsOnSave": {
-#         "source.fixAll.eslint": true
-#     },
-#     "git.autofetch": true,
-#     "git.enableSmartCommit": true,
-#     "[blade]": {
-#         "editor.defaultFormatter": "apility.beautify-blade"
-#     },
-#     "window.zoomLevel": 0
-# }
-
-## keyboard
-# [
-#     {
-#         "key": "ctrl+shift+b",
-#         "command": "HookyQR.beautify",
-#         "when": "editorFocus"
-#     },
-#     {
-#         "key": "ctrl+shift+d",
-#         "command": "editor.action.copyLinesDownAction",
-#         "when": "editorTextFocus"
-#     },
-# ]
-
-# vs code extenstion
-code --install-extension formulahendry.auto-rename-tag
-code --install-extension hookyqr.beautify
-code --install-extension apility.beautify-blade
-code --install-extension thekalinga.bootstrap4-vscode
-code --install-extension zaczero.bootstrap-v4-snippets
-code --install-extension CoenraadS.bracket-pair-colorizer-2
-code --install-extension formulahendry.code-runner
-code --install-extension streetsidesoftware.code-spell-checker
-code --install-extension adpyke.codesnap
-code --install-extension andrew-codes.cypress-snippets
-code --install-extension dart-code.dart-code
-code --install-extension ms-azuretools.vscode-docker
-code --install-extension dsznajder.es7-react-js-snippets
-code --install-extension dbaeumer.vscode-eslint
-code --install-extension amandeepmittal.expressjs
-code --install-extension gurayyarar.expressjs-4-snippets
-code --install-extension cstrap.flask-snippets
-code --install-extension dart-code.flutter
-code --install-extension alexisvt.flutter-snippets
-code --install-extension eamodio.gitlens
-code --install-extension idleberg.icon-fonts
-code --install-extension zignd.html-css-class-completion
-code --install-extension fivethree.vscode-ionic-snippets
-code --install-extension xabikos.javascriptsnippets
-code --install-extension donjayamanne.jquerysnippets
-code --install-extension onecentlin.laravel-blade
-code --install-extension austenc.laravel-blade-spacer
-code --install-extension onecentlin.laravel5-snippets
-code --install-extension MS-vsliveshare.vsliveshare
-code --install-extension yzhang.markdown-all-in-one
-code --install-extension foxundermoon.next-js
-code --install-extension christian-kohler.path-intellisense
-code --install-extension felixfbecker.php-intellisense
-code --install-extension kokororin.vscode-phpfmt
-code --install-extension hoovercj.vscode-power-mode
-code --install-extension esbenp.prettier-vscode
-code --install-extension ms-python.python
-code --install-extension jundat95.react-native-snippet
-code --install-extension equimper.react-native-react-redux
-code --install-extension ms-vscode-remote.remote-ssh 
-code --install-extension xabikos.reactsnippets
-code --install-extension octref.vetur
-code --install-extension vscode-icons-team.vscode-icons
-code --install-extension hollowtree.vue-snippets
-code --install-extension vuetifyjs.vuetify-vscode
-code --install-extension TabNine.tabnine-vscode
-
 
 
 ######################
@@ -345,31 +229,35 @@ echo 'export PATH=$PATH:$HOME/.config/composer/vendor/bin' >> ~/.zshrc
 ################################
 
 # install node.js
-sudo snap install node --classic --channel=14
+sudo snap install node --classic #--channel=14
 
 mkdir ~/.npm-global
 npm config set prefix '~/.npm-global'
 echo 'export PATH="$PATH:$HOME/.npm-global/bin"' >> ~/.zshrc
 
-npm i -g @angular/cli
-npm i -g create-react-app
-npm i -g expo-cli
-npm i -g @vue/cli
-npm i -g live-server
-npm i -g serve
-npm i -g eslint
-npm i -g nodemon
-npm i -g yarn
+npm i --location=global live-server
+npm i --location=global serve
+npm i --location=global eslint
+npm i --location=global nodemon
+npm i --location=global yarn
 
 # curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 # echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
 # sudo apt update && sudo apt install -y yarn
 
+# install nvm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
+echo 'export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"' >> ~/.zshrc
+echo '[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm' >> ~/.zshrc
+nvm install 14
+nvm alias default system
+
 
 ##################
 # install golang #
 ##################
-sudo tar -C /usr/local -xzf go1.17.2.linux-amd64.tar.gz
+wget https://go.dev/dl/go1.18.3.linux-amd64.tar.gz
+sudo tar -C /usr/local -xzf go1*
 echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.zshrc
 curl -sSfL https://raw.githubusercontent.com/cosmtrek/air/master/install.sh | sh -s
 
@@ -378,13 +266,15 @@ curl -sSfL https://raw.githubusercontent.com/cosmtrek/air/master/install.sh | sh
 ##################
 # install docker #
 ##################
-sudo apt -y install apt-transport-https ca-certificates curl gnupg-agent software-properties-common
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-sudo apt update
+sudo apt install -y ca-certificates curl gnupg lsb-release
+sudo mkdir -p /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
 echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-sudo apt -y install docker-ce docker-ce-cli containerd.io
+sudo apt-get update
+sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin
+
 
 sudo groupadd docker
 sudo usermod -aG docker $USER
