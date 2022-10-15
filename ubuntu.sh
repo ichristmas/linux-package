@@ -116,6 +116,7 @@ echo 'export EDITOR=vim' >> ~/.zshrc
 # add alias
 echo 'alias c="xclip -selection clipboard"' >> ~/.zshrc
 echo 'alias open="xdg-open"' >> ~/.zshrc
+echo 'alias curltor="curl -x socks://127.0.0.1:9050"' >> ~/.zshrc
 echo 'cdd () { for i in $(seq 1 1 "$1"); do cd ..; done }' >> ~/.zshrc
 
 
