@@ -295,6 +295,7 @@ sudo chmod +x /usr/local/bin/docker-compose
 wget -q -O - https://archive.kali.org/archive-key.asc  | sudo apt-key add
 # echo "deb http://mirror1.ku.ac.th/kali kali-rolling main contrib non-free" | sudo tee -a /etc/apt/sources.list
 echo "deb http://http.kali.org/kali kali-rolling main non-free contrib" | sudo tee -a /etc/apt/sources.list
+sudo cp /etc/apt/trusted.gpg /etc/apt/trusted.gpg.d/
 sudo apt update
 
 
