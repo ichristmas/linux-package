@@ -22,8 +22,8 @@ rm -rf fonts
 
 # install powerlevel9k
 git clone https://github.com/bhilburn/powerlevel9k.git ~/.oh-my-zsh/custom/themes/powerlevel9k
-wget "https://github.com/ryanoasis/nerd-fonts/raw/master/patched-fonts/Hack/Regular/complete/Hack%20Regular%20Nerd%20Font%20Complete.ttf"
-xdg-open 'Hack Regular Nerd Font Complete.ttf'
+wget https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/Hack/Regular/HackNerdFont-Regular.ttf
+xdg-open 'HackNerdFont-Regular.ttf'
 sed -i 's/^ZSH_THEME=.*/ZSH_THEME="powerlevel9k\/powerlevel9k"\
 export TERM="xterm-256color"\
 POWERLEVEL9K_MODE="nerdfont-complete"\
