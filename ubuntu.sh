@@ -79,19 +79,31 @@ sudo apt install -y build-essential gcc g++ gcc-multilib make automake
 sudo apt install -y default-jdk
 
 # install with snap
-sudo snap install postman
 sudo snap install hub --classic
 
 
+# install postman
+wget https://dl.pstmn.io/download/latest/linux_64 -O postman.tar.gz
+tar xvfz postman.tar.gz
+sudo mv Postman /opt
+sudo sh -c 'cat > /usr/share/applications/Postman.desktop <<EOF
+[Desktop Entry]
+Encoding=UTF-8
+Name=Postman
+Exec=/opt/Postman/app/Postman %U
+Icon=/opt/Postman/app/resources/app/assets/icon.png
+Terminal=false
+Type=Application
+Categories=Development;
+EOF'
+rm -rf postman.tar.gz
+
+
 # install ngrok
-wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
-unzip ngrok-stable-linux-amd64.zip
-rm -rf ngrok-stable-linux-amd64.zip
+wget https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-linux-amd64.tgz -O ngrok.tgz
+tar xvfz ngrok.tgz
 sudo mv ngrok /usr/local/bin
-
-
-# install heroku
-curl https://cli-assets.heroku.com/install-ubuntu.sh | sh
+rm -rf ngrok.tgz
 
 
 # config vim
@@ -230,7 +242,7 @@ echo 'export PATH=$PATH:$HOME/.config/composer/vendor/bin' >> ~/.zshrc
 ################################
 
 # install node.js
-sudo snap install node --classic #--channel=14
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash
 
 mkdir ~/.npm-global
 npm config set prefix '~/.npm-global'
@@ -257,10 +269,11 @@ nvm alias default system
 ##################
 # install golang #
 ##################
-wget https://go.dev/dl/go1.18.3.linux-amd64.tar.gz
-sudo tar -C /usr/local -xzf go1*
-echo 'export PATH=$PATH:/usr/local/go/bin' >> ~/.zshrc
+wget https://go.dev/dl/go1.22.2.linux-amd64.tar.gz
+sudo tar -C /opt -xzf go1
+echo 'export PATH=$PATH:/opt/go/bin' >> ~/.zshrc
 curl -sSfL https://raw.githubusercontent.com/cosmtrek/air/master/install.sh | sh -s
+rm -rf go1*
 
 
 
@@ -281,7 +294,7 @@ sudo groupadd docker
 sudo usermod -aG docker $USER
 newgrp docker
 
-sudo curl -L "https://github.com/docker/compose/releases/download/v2.10.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+curl -SL https://github.com/docker/compose/releases/download/v2.27.0/docker-compose-linux-x86_64 -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 
 
@@ -424,14 +437,8 @@ cat .ssh/id_rsa.pub|c
 # config time dual boot
 timedatectl set-local-rtc 1
 
-# config display
-sudo cvt 1920 1080
-sudo xrandr --newmode "1920x1080_60.00"  173.00  1920 2048 2248 2576  1080 1083 1088 1120 -hsync +vsync
-sudo xrandr --addmode LVDS-1 "1920x1080_60.00"
-
 echo "
-xrandr --newmode "1920x1080_60.00"  173.00  1920 2048 2248 2576  1080 1083 1088 1120 -hsync +vsync
-xrandr --addmode LVDS-1 "1920x1080_60.00"
+nvidia-settings --assign CurrentMetaMode="DP-0: 3440x1440_144 +1440+560 {ForceCompositionPipeline=On, ForceFullCompositionPipeline=On}, HDMI-0: 1920x1080_144 +0+0 {rotation=left, viewportin=1440x2560, ForceCompositionPipeline=On, ForceFullCompositionPipeline=On}"
 " >> ~/.profile
 
 # key sleep
